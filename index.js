@@ -2,8 +2,6 @@
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
-// questions skipped 4, 5
 const questions = [
   {
     type: "input",
@@ -13,13 +11,18 @@ const questions = [
   {
     type: "list",
     message: "What license would you like?",
-    choices: ["a", "b", "c"],
+    choices: ["MIT", "Apache", "GPL", "BSD"],
     name: "license",
   },
   {
     type: "input",
     message: "Please give a brief description of your project",
     name: "description",
+  },
+  {
+    type: "input",
+    message: "How can someone install your project?",
+    name: "installation",
   },
   {
     type: "input",
@@ -56,6 +59,8 @@ const init = async () => {
   const answers = await getAnswersFromQuestions(questions);
 
   const generatedREADME = generateMarkdown(answers);
+
+  console.log(generatedREADME);
 };
 
 // Function call to initialize app
