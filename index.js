@@ -6,21 +6,20 @@ const fs = require("fs");
 const questions = [
   {
     type: "input",
-    message:
-      "What would you like to name your README file?\n Please replace any spaces with - or _",
+    message: "What would you like to name your README file?",
     name: "readmeTitle",
-    default: "N/A",
+    default: "GENERATED_README",
   },
   {
     type: "input",
     message: "What is your project's title?",
     name: "title",
-    default: "N/A",
+    default: "My Project",
   },
   {
     type: "list",
     message: "What license would you like?",
-    choices: ["MIT", "Apache", "GPL", "BSD"],
+    choices: ["MIT", "Apache", "GPL", "BSD", "None"],
     name: "license",
   },
   {
@@ -42,10 +41,17 @@ const questions = [
     default: "N/A",
   },
   {
+    type: "confirm",
+    message: "Where there any tests?",
+    name: "test",
+  },
+  {
     type: "input",
     message: "What are the testing instructions?",
     name: "tests",
-    default: "N/A",
+    when: (answers) => {
+      return answers.test;
+    },
   },
   {
     type: "input",
@@ -64,10 +70,8 @@ const questions = [
 // TODO: Create a function to write README file
 const writeToFile = (readmeTitle, data) => {
   // readme file name get from answers object add .md to the end
-  const fileName = `${readmeTitle}.md`;
-
+  const fileName = `${readmeTitle.toUpperCase().replace(" ", "-")}.md`;
   console.log(fileName);
-  console.log(data);
   fs.writeFileSync(fileName, data);
 };
 
@@ -80,9 +84,9 @@ const getAnswersFromQuestions = async () => {
 const init = async () => {
   const answers = await getAnswersFromQuestions(questions);
 
-  const { readmeTitle } = answers;
-
   const generatedREADME = generateMarkdown(answers);
+
+  const { readmeTitle } = answers;
 
   writeToFile(readmeTitle, generatedREADME);
 };

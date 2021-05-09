@@ -1,4 +1,22 @@
 // Function to generate markdown for README
+
+const isLicense = (license) => {
+  console.log(license);
+  if (license === "None") {
+    return "";
+  } else {
+    return license;
+  }
+};
+
+const areThereTests = (tests) => {
+  if (tests) {
+    return tests;
+  } else {
+    return `N/A`;
+  }
+};
+
 const generateMarkdown = (answers) => {
   const {
     title,
@@ -11,9 +29,11 @@ const generateMarkdown = (answers) => {
     email,
   } = answers;
 
+  const licenses = isLicense(license);
+  const licenseBadge = `![${licenses}](https://img.shields.io/badge/license-${licenses}-green)`;
+
   return `
-  # ${title}
-  ![${license}](https://img.shields.io/badge/license-${license}-green)
+  # ${title} ${licenses === "" ? "" : licenseBadge}
   
   ## Description 
 
@@ -21,7 +41,7 @@ const generateMarkdown = (answers) => {
 
   ## Table of Contents 
 
-  - [${title}](#${title})
+  - [${title}](#${title.toLowerCase().replace(" ", "-")})
 - [Description](#description)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
@@ -37,7 +57,7 @@ const generateMarkdown = (answers) => {
 
   ## License 
 
-  ${license}
+  This work is licensed under ${licenses === "" ? "N/A" : licenses}
 
   ## Contributing
 
@@ -45,7 +65,7 @@ const generateMarkdown = (answers) => {
   
   ## Tests
 
-  ${tests}
+  ${areThereTests(tests)}
 
   ## Questions 
 
