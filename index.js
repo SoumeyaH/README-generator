@@ -1,8 +1,11 @@
-// TODO: Include packages needed for this application
+// External packages need for application
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
-const fs = require("fs");
 
+// Internal packages needed for application
+const generateMarkdown = require("./utils/generateMarkdown");
+const writeToFile = require("./utils/writeMarkdown");
+
+// Questions to be prompted using inquirer
 const questions = [
   {
     type: "input",
@@ -67,21 +70,14 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
-const writeToFile = (readmeTitle, data) => {
-  // readme file name get from answers object add .md to the end
-  const fileName = `${readmeTitle.toUpperCase().replace(" ", "-")}.md`;
-  console.log(fileName);
-  fs.writeFileSync(fileName, data);
-};
-
+// Function to get response from inquirer
 const getAnswersFromQuestions = async (questions) => {
   const answers = await inquirer.prompt(questions);
   return answers;
 };
 
-// TODO: Create a function to initialize app
-const init = async (questions) => {
+// Function to initialize app
+const init = async () => {
   const answers = await getAnswersFromQuestions(questions);
 
   const generatedREADME = generateMarkdown(answers);
@@ -89,7 +85,9 @@ const init = async (questions) => {
   const { readmeTitle } = answers;
 
   writeToFile(readmeTitle, generatedREADME);
+
+  console.info("Readme generated successfully");
 };
 
 // Function call to initialize app
-init(questions);
+init();

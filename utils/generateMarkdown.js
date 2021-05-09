@@ -1,7 +1,4 @@
-// Function to generate markdown for README
-
 const isLicense = (license) => {
-  console.log(license);
   if (license === "None") {
     return "";
   } else {
@@ -9,14 +6,7 @@ const isLicense = (license) => {
   }
 };
 
-const areThereTests = (tests) => {
-  if (tests) {
-    return tests;
-  } else {
-    return `N/A`;
-  }
-};
-
+// Function to generate markdown for README
 const generateMarkdown = (answers) => {
   const {
     title,
@@ -66,8 +56,8 @@ const generateMarkdown = (answers) => {
   ${contributing}
   
   ## Tests
-
-  ${areThereTests(tests)}
+ 
+  ${tests ? tests : `N/A`}
 
   ## Questions 
 
