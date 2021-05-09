@@ -53,7 +53,9 @@ const generateMarkdown = (answers) => {
 
   ## Installation 
 
+  \`\`\` 
   ${installation}
+  \`\`\`
 
   ## License 
 

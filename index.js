@@ -75,13 +75,13 @@ const writeToFile = (readmeTitle, data) => {
   fs.writeFileSync(fileName, data);
 };
 
-const getAnswersFromQuestions = async () => {
+const getAnswersFromQuestions = async (questions) => {
   const answers = await inquirer.prompt(questions);
   return answers;
 };
 
 // TODO: Create a function to initialize app
-const init = async () => {
+const init = async (questions) => {
   const answers = await getAnswersFromQuestions(questions);
 
   const generatedREADME = generateMarkdown(answers);
