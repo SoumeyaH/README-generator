@@ -1,10 +1,4 @@
-const isLicense = (license) => {
-  if (license === "None") {
-    return "";
-  } else {
-    return license;
-  }
-};
+const isLicense = (license) => (license === "None" ? "" : license);
 
 // Function to generate markdown for README
 const generateMarkdown = (answers) => {
