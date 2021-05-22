@@ -1,72 +1,44 @@
-// const isLicense = (license) => (license === "None" ? "" : license);
-const isLicense = (license) => {
-  if (license === "None") {
-    return "";
-  } else {
-    return license;
-  }
-};
+const generateSections = require("./generateSections");
 
-// Function to generate markdown for README
-const generateMarkdown = ({
-  title,
-  license,
-  description,
-  installation,
-  contributing,
-  tests,
-  github,
-  email,
-}) => {
-  console.log(license);
-
-  const licenses = isLicense(license);
-  const licenseBadge = `![${licenses}](https://img.shields.io/badge/license-${licenses}-green)`;
-
+const generateMarkdown = (answers) => {
+  const {
+    titleAnswer,
+    licenseAnswers,
+    descriptionAnswers,
+    installationAnswers,
+    contributingAnswers,
+    usageAnswers,
+    testsAnswers,
+    contactAnswers,
+  } = generateSections(answers);
+  // take answers from this pass into function to generate table
+  // goes after first title ${licenses === "" ? "" : licenseBadge}
   return `
-  # ${title} ${licenses === "" ? "" : licenseBadge}
-  
-  ## Description 
+    # ${titleAnswer} 
 
-  ${description}
+    ## Table of Contents 
 
-  ## Table of Contents 
+      - [to do title here](# to do lowercase title here)
+      - [Description](#description)
+      - [Table of Contents](#table-of-contents)
+      - [Installation](#installation)
+      - [Usage](#usage)
+      - [License](#license)
+      - [Contributing](#contributing)
+      - [Tests](#tests)
+      - [Contact](#contact)
 
-  - [${title}](#${title.toLowerCase().replace(" ", "-")})
-- [Description](#description)
-- [Table of Contents](#table-of-contents)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
+    ${descriptionAnswers}
 
-  ## Installation 
+    ${installationAnswers}
 
-  \`\`\` 
-  ${installation}
-  \`\`\`
+    ${contributingAnswers}
 
-  ## License 
+    ${usageAnswers}
 
-  This work is licensed under ${licenses === "" ? "N/A" : licenses}
+    ${testsAnswers}
 
-  ## Contributing
-
-  ${contributing}
-  
-  ## Tests
- 
-  ${tests ? tests : `N/A`}
-
-  ## Questions 
-
-  How to contact with any questions
-
-  ${github}
-  
-  ${email}  
+    ${contactAnswers}
   `;
 };
 

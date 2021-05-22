@@ -32,6 +32,12 @@ const questions = [
     default: "N/A",
   },
   {
+    message: "What is the usage for your project?",
+    name: "usage",
+    default: "N/A",
+  },
+
+  {
     type: "confirm",
     message: "Where there any tests done for this project?",
     name: "test",
