@@ -1,15 +1,7 @@
-// External packages need for application
-const inquirer = require("inquirer");
-
 // Internal packages needed for application
 const generateMarkdown = require("./utils/generateMarkdown");
+const getAnswersFromQuestions = require("./utils/getAnswersFromQuestions");
 const writeToFile = require("./utils/writeMarkdown");
-
-// Function to get response from inquirer
-const getAnswersFromQuestions = async (questions) => {
-  const answers = await inquirer.prompt(questions);
-  return answers;
-};
 
 // Function to initialize app
 const init = async () => {
