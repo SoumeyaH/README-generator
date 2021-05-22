@@ -1,6 +1,7 @@
 const questions = [
   {
-    message: "What would you like to name your README file?",
+    message:
+      "What would you like to name your README file? \n Please supply without the file extension:",
     name: "readmeTitle",
     default: "GENERATED_README",
   },
@@ -16,7 +17,7 @@ const questions = [
     name: "license",
   },
   {
-    message: "Please give a brief description of your project",
+    message: "Please give a brief description of your project:",
     name: "description",
     default: "N/A",
   },

@@ -1,3 +1,4 @@
+// const isLicense = (license) => (license === "None" ? "" : license);
 const isLicense = (license) => {
   if (license === "None") {
     return "";
@@ -7,17 +8,17 @@ const isLicense = (license) => {
 };
 
 // Function to generate markdown for README
-const generateMarkdown = (answers) => {
-  const {
-    title,
-    license,
-    description,
-    installation,
-    contributing,
-    tests,
-    github,
-    email,
-  } = answers;
+const generateMarkdown = ({
+  title,
+  license,
+  description,
+  installation,
+  contributing,
+  tests,
+  github,
+  email,
+}) => {
+  console.log(license);
 
   const licenses = isLicense(license);
   const licenseBadge = `![${licenses}](https://img.shields.io/badge/license-${licenses}-green)`;

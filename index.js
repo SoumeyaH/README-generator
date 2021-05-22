@@ -11,8 +11,6 @@ const init = async () => {
   const { readmeTitle } = answers;
 
   writeToFile(readmeTitle, generatedREADME);
-
-  console.info("Readme generated successfully");
 };
 
 init();
