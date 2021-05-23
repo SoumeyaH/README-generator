@@ -17,9 +17,21 @@ const questions = [
     name: "license",
   },
   {
+    type: "confirm",
+    message: "Would you like to add description?",
+    name: "description",
+  },
+  {
     message: "Please give a brief description of your project:",
     name: "description",
-    default: "N/A",
+    when: (answers) => {
+      return answers.description;
+    },
+    validate: (_description) => {
+      const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+
+      return re.test(_description);
+    },
   },
   {
     message: "How can someone install your project?",
@@ -27,16 +39,39 @@ const questions = [
     default: "N/A",
   },
   {
-    message: "How can people contribute to the project?",
+    type: "confirm",
+    message: "Would you like people to be able to contribute to your project?",
     name: "contributing",
-    default: "N/A",
   },
   {
-    message: "What is the usage for your project?",
-    name: "usage",
-    default: "N/A",
-  },
+    message: "Please state how can people contribute to the project:",
+    name: "contributing",
+    when: (answers) => {
+      return answers.contributing;
+    },
+    validate: (_contributing) => {
+      const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
 
+      return re.test(_contributing);
+    },
+  },
+  {
+    type: "confirm",
+    message: "Would you like people to be able to use your project?",
+    name: "usage",
+  },
+  {
+    message: "Please state how can people use the project:",
+    name: "usage",
+    when: (answers) => {
+      return answers.usage;
+    },
+    validate: (_usage) => {
+      const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+
+      return re.test(_usage);
+    },
+  },
   {
     type: "confirm",
     message: "Where there any tests done for this project?",
@@ -44,15 +79,32 @@ const questions = [
   },
   {
     message: "What are the testing instructions?",
-    name: "tests",
+    name: "test",
     when: (answers) => {
       return answers.test;
     },
+    validate: (_test) => {
+      const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+
+      return re.test(_test);
+    },
+  },
+  {
+    type: "confirm",
+    message: "Would you like to add your GitHub URL?",
+    name: "github",
   },
   {
     message: "What is your GitHub URL?",
     name: "github",
-    default: "N/A",
+    when: (answers) => {
+      return answers.github;
+    },
+    validate: (_github) => {
+      const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+
+      return re.test(_github);
+    },
   },
   {
     type: "confirm",

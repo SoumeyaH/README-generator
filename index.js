@@ -6,11 +6,13 @@ const writeToFile = require("./utils/writeMarkdown");
 const init = async () => {
   const answers = await getAnswersFromQuestions(questions);
 
-  const generatedREADME = generateMarkdown(answers);
+  console.log("answers", answers);
 
-  const { readmeTitle } = answers;
+  // const generatedREADME = generateMarkdown(answers);
 
-  writeToFile(readmeTitle, generatedREADME);
+  // const { readmeTitle } = answers;
+
+  // writeToFile(readmeTitle, generatedREADME);
 };
 
 init();
