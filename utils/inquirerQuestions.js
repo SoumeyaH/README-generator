@@ -1,4 +1,4 @@
-const questions = [
+const baseQuestions = [
   {
     message:
       "What would you like to name your README file? \n Please supply without the file extension:",
@@ -32,11 +32,6 @@ const questions = [
 
       return re.test(_description);
     },
-  },
-  {
-    message: "How can someone install your project?",
-    name: "installation",
-    default: "N/A",
   },
   {
     type: "confirm",
@@ -125,4 +120,4 @@ const questions = [
   },
 ];
 
-module.exports = questions;
+module.exports = { baseQuestions, installQuestions };
