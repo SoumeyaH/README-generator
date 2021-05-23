@@ -12,25 +12,25 @@
    
 
     ##Description
-  hello
+  g
 
     ##Installation
-  hello hello
+  y g
 
     ##Contribute 
-  hello
+  y
 
     ##Usage
-  hello
+  y
 
     ## License
   This work is licensed under MIT
 
     ##Testing
-  hello
+  y
 
     ##Contact
     If you have any questions don't hesitate to contact me at:
-    Email: hello@g.com
-    GitHub: hello
+    Email: y@b.com
+    GitHub: y
   

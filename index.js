@@ -14,9 +14,11 @@ const init = async () => {
 
   const answers = { ...baseAnswers, installation: installAnswers };
 
+  console.log("answers into generate", answers);
+
   const generatedREADMETemplate = generateMarkdown(answers);
 
-  console.log(generatedREADMETemplate);
+  console.log("answers from generate", generatedREADMETemplate);
 
   const { readmeTitle } = answers;
 

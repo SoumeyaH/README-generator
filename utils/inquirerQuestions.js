@@ -28,9 +28,10 @@ const baseQuestions = [
       return answers.description;
     },
     validate: (_description) => {
-      const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+      // const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+      const re = /\bt[a-z]+\b/;
 
-      return re.test(_description);
+      return re.test(_description) || `Please enter a valid input`;
     },
   },
   {
@@ -47,7 +48,7 @@ const baseQuestions = [
     validate: (_contributing) => {
       const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
 
-      return re.test(_contributing);
+      return re.test(_contributing) || `Please enter a valid input`;
     },
   },
   {
@@ -64,7 +65,7 @@ const baseQuestions = [
     validate: (_usage) => {
       const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
 
-      return re.test(_usage);
+      return re.test(_usage) || `Please enter a valid input`;
     },
   },
   {
@@ -81,7 +82,7 @@ const baseQuestions = [
     validate: (_test) => {
       const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
 
-      return re.test(_test);
+      return re.test(_test) || `Please enter a valid input`;
     },
   },
   {
@@ -98,7 +99,7 @@ const baseQuestions = [
     validate: (_github) => {
       const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
 
-      return re.test(_github);
+      return re.test(_github) || `Please enter a valid input`;
     },
   },
   {
@@ -115,7 +116,7 @@ const baseQuestions = [
     validate: (_email) => {
       const re =
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(_email);
+      return re.test(_email) || `Please enter a valid input`;
     },
   },
 ];

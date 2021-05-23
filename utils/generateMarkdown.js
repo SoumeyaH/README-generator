@@ -39,7 +39,7 @@ const generateMarkdown = (answers) => {
   } = templateAnswers;
 
   return `
-    # ${title} ${licenseAnswers.licenseBadge}
+    #${title} ${licenseAnswers.licenseBadge}
 
     ${generateTable(templateAnswers)}
 
@@ -56,6 +56,7 @@ const generateMarkdown = (answers) => {
     ${testsAnswers}
 
     ${contactAnswers.heading}
+    
     ${contactAnswers.subheading}
     ${contactAnswers.emailKey}
     ${contactAnswers.githubKey}

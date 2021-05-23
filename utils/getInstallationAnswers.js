@@ -24,7 +24,7 @@ const installQuestion = [
     validate: (_installation) => {
       const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
 
-      return re.test(_installation);
+      return re.test(_installation) || `Please enter a valid input`;
     },
   },
 ];
@@ -53,7 +53,7 @@ const getInstallationAnswers = async () => {
     }
   }
 
-  // figure out new line maybe \n
+  // to do figure out new line maybe \n
 
   return installSteps.join(" ");
 };
