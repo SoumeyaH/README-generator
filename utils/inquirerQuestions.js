@@ -120,4 +120,27 @@ const baseQuestions = [
   },
 ];
 
-module.exports = { baseQuestions, installQuestions };
+// const installQuestions = [
+//   {
+//     type: "confirm",
+//     message: "Would you like people to be able to install your project?",
+//     name: "isInstallation",
+//   },
+//   {
+//     type: "list",
+//     message: "Would you like to add an installation step?",
+//     choices: ["Add step", "No more steps"],
+//     name: "installationSteps",
+//   },
+//   {
+//     message: "Please state how can people install to the project:",
+//     name: "installation",
+//     validate: (_installation) => {
+//       const re = /^[~`!@#$%^&*()_+=[\]\{}|;':",.\/<>?a-zA-Z0-9-]+$/;
+
+//       return re.test(_installation);
+//     },
+//   },
+// ];
+
+module.exports = { baseQuestions };

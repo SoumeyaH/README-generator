@@ -8,14 +8,12 @@ const {
 const writeToFile = require("./utils/writeMarkdown");
 
 const init = async () => {
-  // const baseAnswers = await getAnswersFromQuestions(baseQuestions);
-
-  // console.log("answers", baseAnswers);
-  console.log("question", typeof getInstallationAnswers);
+  const baseAnswers = await getAnswersFromQuestions(baseQuestions);
 
   const installAnswers = await getInstallationAnswers(installQuestions);
 
-  console.log("installAnswers", installAnswers);
+  const answers = { ...baseAnswers, installation: installAnswers };
+  console.log("joined answer", answers);
   // const generatedREADME = generateMarkdown(answers);
 
   // const { readmeTitle } = answers;
