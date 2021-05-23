@@ -14,11 +14,13 @@ const init = async () => {
 
   const answers = { ...baseAnswers, installation: installAnswers };
 
-  const generatedREADME = generateMarkdown(answers);
+  const generatedREADMETemplate = generateMarkdown(answers);
 
-  // const { readmeTitle } = answers;
+  console.log(generatedREADMETemplate);
 
-  // writeToFile(readmeTitle, generatedREADME);
+  const { readmeTitle } = answers;
+
+  writeToFile(readmeTitle, generatedREADMETemplate);
 };
 
 init();

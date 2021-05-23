@@ -16,7 +16,10 @@ const createLicense = (license) => {
 };
 
 const createContact = (github, email) => {
-  const contact = {};
+  const contact = {
+    heading: "##Contact",
+    subheading: "If you have any questions don't hesitate to contact me at:",
+  };
   const emailAnswer = email ? `Email: ${email}` : false;
   const githubAnswer = github ? `GitHub: ${github}` : false;
 
@@ -42,17 +45,17 @@ const generateSections = (answers) => {
 
   const licenseAnswers = createLicense(license);
 
-  const descriptionAnswers = templateSection("Description", description);
+  const descriptionAnswers = templateSection("##Description", description);
 
-  const contributingAnswers = templateSection("Contribute ", contributing);
+  const contributingAnswers = templateSection("##Contribute ", contributing);
 
-  const usageAnswers = templateSection("Usage", usage);
+  const usageAnswers = templateSection("##Usage", usage);
 
-  const testsAnswers = templateSection("Testing", test);
+  const testsAnswers = templateSection("##Testing", test);
 
   const contactAnswers = createContact(github, email);
 
-  const installationAnswers = templateSection("Installation", installation);
+  const installationAnswers = templateSection("##Installation", installation);
 
   return {
     licenseAnswers,

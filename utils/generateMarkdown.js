@@ -23,38 +23,43 @@ const generateTable = (answer) => {
 };
 
 const generateMarkdown = (answers) => {
-  // const {
-  //   // licenseAnswers,
-  //   // descriptionAnswers,
-  //   // installationAnswers,
-  //   // contributingAnswers,
-  //   // usageAnswers,
-  //   // testsAnswers,
-  //   // contactAnswers,
-  // }
+  const { title } = answers;
 
   const templateAnswers = generateSections(answers);
 
-  const table = generateTable(templateAnswers);
+  console.log("templateAnswers", templateAnswers);
+  const {
+    licenseAnswers,
+    descriptionAnswers,
+    installationAnswers,
+    contributingAnswers,
+    usageAnswers,
+    testsAnswers,
+    contactAnswers,
+  } = templateAnswers;
 
-  console.log(table);
-  // return `
-  //   # ${title} to do license badge goes here
+  return `
+    # ${title} ${licenseAnswers.licenseBadge}
 
-  //   to do table goes here
+    ${generateTable(templateAnswers)}
 
-  //   ${descriptionAnswers}
+    ${descriptionAnswers}
 
-  //   ${installationAnswers}
+    ${installationAnswers}
 
-  //   ${contributingAnswers}
+    ${contributingAnswers}
 
-  //   ${usageAnswers}
+    ${usageAnswers}
 
-  //   ${testsAnswers}
+    ${licenseAnswers.licenseSection}
 
-  //   ${contactAnswers}
-  // `;
+    ${testsAnswers}
+
+    ${contactAnswers.heading}
+    ${contactAnswers.subheading}
+    ${contactAnswers.emailKey}
+    ${contactAnswers.githubKey}
+  `;
 };
 
 module.exports = generateMarkdown;
