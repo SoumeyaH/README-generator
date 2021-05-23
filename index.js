@@ -13,8 +13,8 @@ const init = async () => {
   const installAnswers = await getInstallationAnswers(installQuestions);
 
   const answers = { ...baseAnswers, installation: installAnswers };
-  console.log("joined answer", answers);
-  // const generatedREADME = generateMarkdown(answers);
+
+  const generatedREADME = generateMarkdown(answers);
 
   // const { readmeTitle } = answers;
 

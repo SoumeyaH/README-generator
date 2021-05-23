@@ -44,7 +44,6 @@ const getInstallationAnswers = async () => {
     switch (installationSteps) {
       case "Add step":
         const { installation } = await getAnswersFromQuestions(installQuestion);
-        console.log("add result", installation);
         installSteps.push(installation);
         break;
 

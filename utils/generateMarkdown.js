@@ -1,45 +1,60 @@
 const generateSections = require("./generateSections");
 
-const generateMarkdown = (answers) => {
+const generateTable = (answer) => {
   const {
-    titleAnswer,
     licenseAnswers,
     descriptionAnswers,
-    installationAnswers,
     contributingAnswers,
     usageAnswers,
     testsAnswers,
     contactAnswers,
-  } = generateSections(answers);
-  // take answers from this pass into function to generate table
-  // goes after first title ${licenses === "" ? "" : licenseBadge}
-  return `
-    # ${titleAnswer} 
+    installationAnswers,
+  } = answer;
 
-    ## Table of Contents 
+  return `## Table of Contents
+   ${descriptionAnswers ? `[Description](#description)` : ""}
+   ${installationAnswers ? `[Installation](#installation)` : ""}
+   ${usageAnswers ? `[Usage](#usage)` : ""}
+   ${licenseAnswers ? `[License](#license)` : ""}
+   ${contributingAnswers ? `[Contributing](#contributing)` : ""}
+   ${testsAnswers ? `[Tests](#tests)` : ""}
+   ${contactAnswers ? `[Contact](#contact)` : ""}
+   `;
+};
 
-      - [to do title here](# to do lowercase title here)
-      - [Description](#description)
-      - [Table of Contents](#table-of-contents)
-      - [Installation](#installation)
-      - [Usage](#usage)
-      - [License](#license)
-      - [Contributing](#contributing)
-      - [Tests](#tests)
-      - [Contact](#contact)
+const generateMarkdown = (answers) => {
+  // const {
+  //   // licenseAnswers,
+  //   // descriptionAnswers,
+  //   // installationAnswers,
+  //   // contributingAnswers,
+  //   // usageAnswers,
+  //   // testsAnswers,
+  //   // contactAnswers,
+  // }
 
-    ${descriptionAnswers}
+  const templateAnswers = generateSections(answers);
 
-    ${installationAnswers}
+  const table = generateTable(templateAnswers);
 
-    ${contributingAnswers}
+  console.log(table);
+  // return `
+  //   # ${title} to do license badge goes here
 
-    ${usageAnswers}
+  //   to do table goes here
 
-    ${testsAnswers}
+  //   ${descriptionAnswers}
 
-    ${contactAnswers}
-  `;
+  //   ${installationAnswers}
+
+  //   ${contributingAnswers}
+
+  //   ${usageAnswers}
+
+  //   ${testsAnswers}
+
+  //   ${contactAnswers}
+  // `;
 };
 
 module.exports = generateMarkdown;
